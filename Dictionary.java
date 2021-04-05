@@ -5,7 +5,7 @@ public class Dictionary {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your name: ");
         int number = scanner.nextInt();
-        String b, a, c, f;
+        String b, a, c, f, cc,aa;
         char nm = 0, mk = 0, nn = 0;
         String n = Integer.toString(number);
         if (n.length() > 0) {
@@ -32,6 +32,18 @@ public class Dictionary {
             };
             System.out.println(a);
         }
+        cc = switch (nn) {
+            case '1' -> ("eleven");
+            case '2' -> ("twelve");
+            case '3' -> ("thirteen");
+            case '4' -> ("fourteen");
+            case '5' -> ("fifteen");
+            case '6' -> ("sixteen");
+            case '7' -> ("seventeen");
+            case '8' -> ("eighteen");
+            case '9' -> ("nineteen");
+            default -> ("sai rồi");
+        };
         f = switch (nn) {
             case '1' -> ("one");
             case '2' -> ("two");
@@ -67,21 +79,39 @@ public class Dictionary {
             case '9' -> ("ninety");
             default -> ("a");
         };
+        aa = switch (mk) {
+            case '2' -> ("twenty");
+            case '3' -> ("thirty");
+            case '4' -> ("forty");
+            case '5' -> ("fifty");
+            case '6' -> ("sixty");
+            case '7' -> ("seventy");
+            case '8' -> ("eighty");
+            case '9' -> ("ninety");
+            default -> ("a");
+        };
         if (number < 10) {
             System.out.println(b);
-        } else if (number > 19 && number < 100) {
-            System.out.println(c + "-" + f);
-        } else if (number > 99) {
-            if (nm == '0') {
-                if (nn == '0') {
-                    System.out.println(b + " hundred ");
-                } else {
-                    System.out.println(b + " hundred " + f);
-                }
-            } else {
-                System.out.println(b + " hundred " + c + "-" + f);
+        }
+        if (number > 19 && number < 100) {
+            if (nm=='0'){
+                System.out.print(aa);
+            }else {
+                System.out.print(b+" - "+c);
             }
-
+        }
+        if (number==100){
+            System.out.print("one hundred");
+        }
+        if (number>100&&number<120){
+            System.out.print(b + " hundred "+ cc);
+        }
+        if (number > 119) {
+            if (nn=='0'){
+                System.out.print(b + " hundred " + c);
+            }else {
+                System.out.print(b + " hundred " + c + " - " + f);
+            }
         }
     }
 }
